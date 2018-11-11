@@ -9,6 +9,7 @@
   "author": "CarRoy",
   "license": "ISC",
   "dependencies": {
-    "discord.js": "^11.4.2"
+    "discord.js": "^11.4.2",
+    "eslint": "^5.8.0"
   }
 }
