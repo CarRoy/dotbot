@@ -54,6 +54,31 @@ bot.on("message", async message => {
     message.channel.send(infoEmbed);}
 
 
+  //Embed command
+
+  if (cmd === `${prefix}embed`) {
+
+    const embedMessage = args.join(" ");
+
+    if (message.author.id = `315381917996548097`) {
+      
+      message.delete().catch;
+
+      if (embedMessage.length <= 1) {
+        const embedNoEmbed = new Discord.RichEmbed()
+          .addField(`<:Red:508989275757608980> ${message.author.username}`, "Add text to your message: d.embed <text>")
+          .setColor("#ff0000");
+        message.channel.send(embedNoEmbed);
+      }
+      message.channel.send(embedMessage);
+      return;
+    }
+    if (!message.member.hasPermission("MANAGE_MESSAGES")) {
+      const embedNoEmbed = new Discord.RichEmbed()
+        .addField(`<:Red:508989275757608980> ${message.author.username}`, noPermissions)
+        .setColor("#ff0000");
+      message.channel.send(embedNoEmbed);
+    }}
 
 
 
@@ -127,48 +152,76 @@ bot.on("message", async message => {
     message.channel.send(avatarEmbed);
   }
 
+
+  //Say command
+
+
   if (cmd === `${prefix}say`) {
+
     const sayMessage = args.join(" ");
+
     if (message.author.id = `315381917996548097`) {
+
       message.delete().catch;
+
       if (sayMessage.length <= 1) {
-        const sayNoEmbed = new Discord.RichEmbed()
+
+        const sayNoTextEmbed = new Discord.RichEmbed()
           .addField(`<:Red:508989275757608980> ${message.author.username}`, "Add text to your message: d.say <text>")
           .setColor("#ff0000");
-        message.channel.send(sayNoEmbed);
+
+        message.channel.send(sayNoTextEmbed);
+        return;
       }
       message.channel.send(sayMessage);
       return;
     }
+
+
     if (!message.member.hasPermission("MANAGE_MESSAGES")) {
       const sayNoEmbed = new Discord.RichEmbed()
         .addField(`<:Red:508989275757608980> ${message.author.username}`, noPermissions)
         .setColor("#ff0000");
+
       message.channel.send(sayNoEmbed);
-    }}
+      return;
+    }
+
+    if (message.member.hasPermission("MANAGE_MESSAGES")) {
+      if (sayMessage.length <= 1) {
+        const sayNoTextEmbed = new Discord.RichEmbed()
+          .addField(`<:Red:508989275757608980> ${message.author.username}`, "Add text to your message: d.say <text>")
+          .setColor("#ff0000");
+        message.channel.send(sayNoTextEmbed);
+        return;
+      }
+      message.channel.send(sayMessage);
+    
+    }
+
    
-  //Poll command
+    //Poll command
 
 
-  if (cmd === `${prefix}poll`) {
+    if (cmd === `${prefix}poll`) {
 
-    const pollMessage = args.join(" ");
-    const pollNoEmbed = new Discord.RichEmbed()
-      .addField(`<:Red:508989275757608980> ${message.author.username}`, "You need to add text to your poll, use this: `d.poll <text>`")
-      .setColor("#ff0000");
-    if (pollMessage.length <= 0) return message.channel.send(pollNoEmbed);
-    const pollEmbed = new Discord.RichEmbed()
-      .addField(`<:Blue:508989275736375299> ${message.author.username}`, `${pollMessage}`)
-      .setColor(`#0055ff`);
-    message.delete();
-    message.channel.send(pollEmbed)
-      .then(function(message) {
-        message;
-        setTimeout(() => {
-          message.react("👎");
-        }, 100);
-        message.react("👍");
-      });
+      const pollMessage = args.join(" ");
+      const pollNoEmbed = new Discord.RichEmbed()
+        .addField(`<:Red:508989275757608980> ${message.author.username}`, "You need to add text to your poll, use this: `d.poll <text>`")
+        .setColor("#ff0000");
+      if (pollMessage.length <= 0) return message.channel.send(pollNoEmbed);
+      const pollEmbed = new Discord.RichEmbed()
+        .addField(`<:Blue:508989275736375299> ${message.author.username}`, `${pollMessage}`)
+        .setColor(`#0055ff`);
+      message.delete();
+      message.channel.send(pollEmbed)
+        .then(function(message) {
+          message;
+          setTimeout(() => {
+            message.react("👎");
+          }, 100);
+          message.react("👍");
+        });
     /*
     if (cmd === `${prefix}countdown`) {
 
@@ -226,7 +279,6 @@ bot.on("message", async message => {
         message.delete();
       });
     */
-
-  }});
+    }}});
 
 bot.login(botconfig.token);
