@@ -44,15 +44,6 @@ bot.on("message", async message => {
       .setColor("#0055ff");
     message.channel.send(infoEmbed);
   }
-  if (cmd === `${prefix}information`) {
-    message.channel.send(infoEmbed);}
-
-  if (cmd === `${prefix}botinfo`) {
-    message.channel.send(infoEmbed);}
-
-  if (cmd === `${prefix}botinformation`) {
-    message.channel.send(infoEmbed);}
-
 
   //Embed command
 
@@ -136,7 +127,7 @@ bot.on("message", async message => {
 
     });}
 
-  //Avatar commands
+  //Avatar command
 
   if (cmd === `${prefix}av`) {
     
@@ -148,9 +139,7 @@ bot.on("message", async message => {
     message.channel.send(avatarEmbed);
   }
 
-  if (cmd === `${prefix}avatar`) {
-    message.channel.send(avatarEmbed);
-  }
+  
 
 
   //Say command
@@ -224,63 +213,6 @@ bot.on("message", async message => {
           }, 100);
           message.react("👍");
         });
-    /*
-    if (cmd === `${prefix}countdown`) {
-
-      const countdownEmbed5 = new Discord.RichEmbed()
-        .addField("<:Blue:508989275736375299> Countdown", "5")
-        .setColor(`#0055ff`);
-       
-      const countdownEmbed4 = new Discord.RichEmbed()
-        .addField("<:Blue:508989275736375299> Countdown", "4")
-        .setColor(`#0055ff`);
-    
-      const countdownEmbed3 = new Discord.RichEmbed()
-        .addField("<:Blue:508989275736375299> Countdown", "3")
-        .setColor(`#0055ff`);
-    
-      const countdownEmbed2 = new Discord.RichEmbed()
-        .addField("<:Blue:508989275736375299> Countdown", "2")
-        .setColor(`#0055ff`);
-    
-      const countdownEmbed1 = new Discord.RichEmbed()
-        .addField("<:Blue:508989275736375299> Countdown", "1")
-        .setColor(`#0055ff`);
-    
-      const countdownEmbedGo = new Discord.RichEmbed()
-        .addField("<:Blue:508989275736375299> Countdown", "Go")
-        .setColor(`#0055ff`);
-        
-    
-      message.channel.send(countdownEmbed5).then(msg => {
-    
-        setTimeout(() => {
-          msg.edit(countdownEmbed4);
-        }, 1000);
-    
-        setTimeout(() => {
-          msg.edit(countdownEmbed3);
-        }, 2000);
-    
-        setTimeout(() => {
-          msg.edit(countdownEmbed2);
-        }, 3000);
-    
-        setTimeout(() => {
-          msg.edit(countdownEmbed1);
-        }, 4000);
-    
-        setTimeout(() => {
-          msg.edit(countdownEmbedGo);
-        }, 5000);
-    
-        setTimeout(() => {
-          msg.delete();
-        }, 10000);
-          
-        message.delete();
-      });
-    */
     }}});
 
 bot.login(botconfig.token);
