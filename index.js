@@ -50,7 +50,10 @@ bot.on("message", async message => {
   if (cmd === `${prefix}embed`) {
 
     const embedMessage = args.join(" ");
-
+     
+    const embedTextEmbed = new Discord.RichEmbed()
+        .addField(`<:Blue:508989275736375299> ${message.author.username}`, `${embedMessage}`)
+        .setColor(#0055ff);
     if (message.author.id = `315381917996548097`) {
       
       message.delete().catch;
@@ -60,16 +63,19 @@ bot.on("message", async message => {
           .addField(`<:Red:508989275757608980> ${message.author.username}`, "Add text to your message: d.embed <text>")
           .setColor("#ff0000");
         message.channel.send(embedNoEmbed);
+        return;
       }
-      message.channel.send(embedMessage);
-      return;
+    message.channel.send(embedTextEmbed);
     }
     if (!message.member.hasPermission("MANAGE_MESSAGES")) {
       const embedNoEmbed = new Discord.RichEmbed()
         .addField(`<:Red:508989275757608980> ${message.author.username}`, noPermissions)
         .setColor("#ff0000");
       message.channel.send(embedNoEmbed);
-    }}
+      return;
+    }
+    message.channel.send(embedTextEmbed);
+  }
 
 
 
