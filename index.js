@@ -26,8 +26,8 @@ bot.on("message", async message => {
     const helpEmbed = new Discord.RichEmbed()
       .setTitle(`<:Blue:508989275736375299> ${message.author.username}`)
       .setColor("#0055ff")
-      .addField("**__Main:__**", "**d.ping**\nDisplays Dot's ping.\n**d.help**\nShows a list of commands for Dot.")
-      .addField("**__Tools:__**", "**d.avatar**\nDisplays your avatar.\n**d.poll**\nCreates a poll.")
+      .addField("**__Main:__**", "**d.ping**\nDisplays Dot's ping.\n**d.help**\nShows a list of commands for Dot.\n**d.info**\nShows bot info.")
+      .addField("**__Tools:__**", "**d.av**\nDisplays your avatar.\n**d.poll**\nCreates a poll.\n**d.say**\nSays given message.\n**d.embed**\nEmbeds given message.")
       .addField("**__Bot:__**", "**d.status**\nChanges Dot's status.")
       .setFooter(`Type d.<command> to use a command.`);
     message.channel.send(helpEmbed);
