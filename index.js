@@ -199,6 +199,8 @@ bot.on("message", async message => {
     
     }
 
+    
+
    
     //Poll command
 
